@@ -2,8 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
+interface Person {
+  id: number;
+  email: string;
+  avatar: string;
+}
+
 function App() {
-  const [persons, setPersons] = useState([]);
+  const [persons, setPersons] = useState<Person[]>([]);
   useEffect(() => {
     const fetchImages = async () => {
       const data = (await axios.get("https://reqres.in/api/users/")).data.data;
